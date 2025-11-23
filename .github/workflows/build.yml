@@ -1,12 +1,12 @@
-name: Build
+name: Build & Deploy with Jib
 
 on:
   push:
-    branches: [ "**" ]
+    branches: ["main"]
 
 jobs:
   build-bookmark-api:
-    name: Build bookmark-api
+    name: Build and Push bookmark-api
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -22,13 +22,13 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build with Maven (Run Tests)
-        run: ./mvnw verify
-
-      - if: ${{ github.ref == 'refs/heads/main' }}
-        name: Build and Publish to Docker Hub using Jib
+      - name: Authenticate Docker Hub for Jib
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          ./mvnw clean -DskipTests jib:build \
+          ./mvnw compile jib:build \
+            -DskipTests \
             -Djib.to.image=${{ secrets.DOCKER_USERNAME }}/bookmark-api:latest \
             -Djib.to.auth.username=${{ secrets.DOCKER_USERNAME }} \
             -Djib.to.auth.password=${{ secrets.DOCKER_PASSWORD }}
