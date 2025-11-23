@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./bookmark_api
+        working-directory: ./book-marker-backend/bookmark-api
 
     steps:
       - uses: actions/checkout@v4
