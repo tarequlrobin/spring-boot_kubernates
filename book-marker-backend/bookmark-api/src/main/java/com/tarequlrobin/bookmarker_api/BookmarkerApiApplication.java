@@ -1,13 +1,13 @@
-package com.tarequlrobin.bookmark_api;
+package com.tarequlrobin.bookmarker_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BookmarkApiApplication {
+public class BookmarkerApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BookmarkApiApplication.class, args);
+		SpringApplication.run(BookmarkerApiApplication.class, args);
 	}
 
 }

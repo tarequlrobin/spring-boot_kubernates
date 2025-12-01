@@ -1,11 +1,9 @@
-package com.tarequlrobin.bookmark_api.domain;
+package com.tarequlrobin.bookmarker_api.domain;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/bookmarks")

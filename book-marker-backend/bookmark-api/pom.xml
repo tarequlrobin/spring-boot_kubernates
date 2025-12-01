@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.tarequlrobin</groupId>
-	<artifactId>bookmark-api</artifactId>
+	<artifactId>bookmarker-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bookmark-api</name>
+	<name>bookmarker-api</name>
 	<description>Demo project for SpringBoot-next.js-docker-kubernetes</description>
 	<url/>
 	<licenses>
@@ -149,24 +149,17 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>3.4.0</version>
                 <configuration>
-                    <from>
-                        <image>eclipse-temurin:17-jre</image>
-                    </from>
                     <to>
-                        <image>tarequlrobin/bookmarker-api</image>
-                        <tags>
-                            <tag>latest</tag>
-                        </tags>
+                        <image>tareqrobin/bookmarker-api:latest</image>
+                        <auth>
+                            <!--suppress UnresolvedMavenProperty -->
+                            <username>${env.DOCKER_USERNAME}</username>
+                            <!--suppress UnresolvedMavenProperty -->
+                            <password>${env.DOCKER_PASSWORD}</password>
+                        </auth>
                     </to>
-                    <container>
-                        <mainClass>com.tarequl.bookmarker_api.BookmarkerApiApplication</mainClass>
-                        <ports>
-                            <port>8080</port>
-                        </ports>
-                    </container>
                 </configuration>
             </plugin>
-
         </plugins>
 	</build>
 </project>

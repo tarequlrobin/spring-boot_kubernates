@@ -1,4 +1,4 @@
-package com.tarequlrobin.bookmark_api.domain;
+package com.tarequlrobin.bookmarker_api.domain;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.BeforeEach;
@@ -88,15 +88,15 @@ class BookmarkControllerTest {
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("""
             {
-                "title": "SivaLabs Blog",
-                "url": "https://sivalabs.in"
+                "title": "Facebook",
+                "url": "https://www.facebook.com/tarequlrobin/"
             }
             """)
                 )
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id", notNullValue()))
-                .andExpect(jsonPath("$.title", is("SivaLabs Blog")))
-                .andExpect(jsonPath("$.url", is("https://sivalabs.in")));
+                .andExpect(jsonPath("$.title", is("Facebook")))
+                .andExpect(jsonPath("$.url", is("https://www.facebook.com/tarequlrobin/")));
     }
 
     @Test
@@ -106,7 +106,7 @@ class BookmarkControllerTest {
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("""
                 {
-                    "title": "SivaLabs Blog"
+                    "title": "Facebook"
                 }
                 """)
                 )
@@ -117,7 +117,7 @@ class BookmarkControllerTest {
                 .andExpect(jsonPath("$.status", is(400)))
                 .andExpect(jsonPath("$.violations", hasSize(1)))
                 .andExpect(jsonPath("$.violations[0].field", is("url")))
-                .andExpect(jsonPath("$.violations[0].message", is("URL cannot be empty")))
+                .andExpect(jsonPath("$.violations[0].message", is("URL cannot be empty!")))
                 .andReturn();
     }
 }

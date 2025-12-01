@@ -1,4 +1,4 @@
-package com.tarequlrobin.bookmark_api.domain;
+package com.tarequlrobin.bookmarker_api.domain;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -10,7 +10,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.util.List;
 
 @Service
 @Transactional

@@ -1,4 +1,4 @@
-package com.tarequlrobin.bookmark_api;
+package com.tarequlrobin.bookmarker_api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

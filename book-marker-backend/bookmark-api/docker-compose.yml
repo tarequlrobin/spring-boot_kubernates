@@ -1,0 +1,24 @@
+services:
+  bookmarker-db:
+    image: postgres:17-alpine
+    container_name: bookmarker-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: appdb
+    ports:
+      - "15432:5432"
+
+  bookmarker-api:
+    image: tareqrobin/bookmarker-api:latest
+    container_name: bookmarker-api
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://bookmarker-db:5432/appdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    ports:
+      - "18080:8080"
+    depends_on:
+      - bookmarker-db
+    restart: always

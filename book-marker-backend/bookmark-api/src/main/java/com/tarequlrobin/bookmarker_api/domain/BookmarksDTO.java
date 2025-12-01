@@ -1,4 +1,4 @@
-package com.tarequlrobin.bookmark_api.domain;
+package com.tarequlrobin.bookmarker_api.domain;
 
 import lombok.Getter;
 import lombok.Setter;

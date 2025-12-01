@@ -1,4 +1,4 @@
-package com.tarequlrobin.bookmark_api;
+package com.tarequlrobin.bookmarker_api;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
